@@ -1,6 +1,5 @@
 package com.saltos.salti.Entities;
 
-import com.sun.istack.NotNull;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
@@ -32,9 +31,7 @@ public class Skydiver {
 
     private String email;
 
-
-
-    @OneToMany
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Jump> jump;
 
     private int numberOfJumps;
